@@ -4,5 +4,4 @@ class CustomAPIError extends Error {
     this.statusCode = statusCode
   }
 }
-
 module.exports = CustomAPIError

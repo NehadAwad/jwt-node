@@ -8,3 +8,6 @@ const dashboard = async (req, res) => {
     res.status(200).json({ msg: `Hello, Jhon Doe`, secret: `lucky number ${luckyNumber}`})
 }
 
+module.exports = {
+    login, dashboard
+}

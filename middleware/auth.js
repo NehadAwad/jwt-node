@@ -5,6 +5,6 @@ const { UnauthenticatedError } = require('../errors')
 const authenticationMiddleware = async (req, res, next) => {
   
 
-  }
+}
   
   module.exports = authenticationMiddleware

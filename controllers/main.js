@@ -1,0 +1,4 @@
+
+const login = async (req, res) => {
+    res.send('Fake Login/Reg/SignUp Route')
+}

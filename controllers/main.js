@@ -8,16 +8,16 @@ app.use(bodyParser.json());
 
 
 const login = async (req, res) => {
-    const { username } = req.body.username
+    const { username } = req.query
     console.log(username)
-    res.send('username')
+    res.send('ok')
 }
 
 const dashboard = async (req, res) => {
-    const {test} = req.body
+    const {test} = req.query
     console.log(test)
     const luckyNumber = Math.floor(Math.random() * 100)
-    res.status(200).json({ msg: `Hello, Jhon Doe`, secret: `lucky number ${luckyNumber}`})
+    res.status(200).json({ msg: `Hello, Jhon Doe`, secret: `lucky number ${luckyNumber}`, test: test})
 }
 
 module.exports = {

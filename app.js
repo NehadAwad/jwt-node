@@ -14,13 +14,13 @@ app.use(express.static('./public'));
 app.use(express.json());
 
 app.use('/api/v1', mainRouter)
-app.use('/test', testRouter)
+// app.use('/test', testRouter)
 
 app.get("/user", function(req, res){
   
-  var name = req.query.name
+  var name = req.params.name
   console.log("Name :", name)
- 
+ res.send(name)
 })
 
 app.use(notFoundMiddleware);

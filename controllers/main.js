@@ -15,6 +15,9 @@ app.use(bodyParser.json());
 const login = async (req, res) => {
     const { username } = req.query
     console.log(username)
+    if (!username || !password) {
+        throw new BadRequestError('Please provide email and password')
+      }
     res.send('ok')
 }
 

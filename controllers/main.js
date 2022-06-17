@@ -17,7 +17,8 @@ const login = async (req, res) => {
     console.log(username)
     if (!username || !password) {
         throw new BadRequestError('Please provide email and password')
-      }
+    }
+    const id = new Date().getDate()
     res.send('ok')
 }
 

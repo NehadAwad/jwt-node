@@ -21,10 +21,11 @@ const login = async (req, res) => {
     const token = jwt.sign({ id, username }, process.env.JWT_SECRET, {
         expiresIn: '30d',
       });
-    res.send('ok')
+    res.status(200).json({msg: 'user created', token})
 }
 
 const dashboard = async (req, res) => {
+
     const {test} = req.query
     console.log(test)
     const luckyNumber = Math.floor(Math.random() * 100)

@@ -1,8 +1,6 @@
 
 const jwt = require('jsonwebtoken')
-// const { BadRequestError } = require('../errors')
-
-
+const { BadRequestError } = require('../errors')
 
 const bodyParser = require('body-parser');
 const express = require('express');

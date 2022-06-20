@@ -1,6 +1,6 @@
 
 const jwt = require('jsonwebtoken')
-const { BadRequestError } = require('../errors')
+const { BadRequestError, CustomAPIError } = require('../errors')
 
 const bodyParser = require('body-parser');
 const express = require('express');
@@ -23,13 +23,24 @@ const login = async (req, res) => {
 }
 
 const dashboard = async (req, res) => {
-
-    const {test} = req.query
-    console.log(test)
+    const authHeader = req.headers.authorization;
+    if(!authHeader || !authHeader.startwith('Bearer ')){
+        throw new CustomAPIError('No token prodvided', 401)
+    }
     const luckyNumber = Math.floor(Math.random() * 100)
-    res.status(200).json({ msg: `Hello, Jhon Doe`, secret: `lucky number ${luckyNumber}`, test: test})
+    res.status(200).json({
+       
+        secret: `Here is your authorized data, your lucky number is ${luckyNumber}`,
+    })
+}
+
+const akashC = async (req, res) => {
+    console.log('ok');
+    res.status(200).json({
+        msg: `ok`
+    })
 }
 
 module.exports = {
-    login, dashboard
+    login, dashboard, akashC
 }
